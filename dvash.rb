@@ -29,21 +29,31 @@ require './lib/banner.rb'
 @log = false
 @ipv4tables = false
 @ipv6tables = false
+
 # bucket for module threads
 @module_threads = []
+
 # load conf file
 load_conf
+
 # start health checks
 check_os
 check_uid
 check_iptables
+
 # prepare iptables for blocking
 prepare_iptables
 prepare_ip6tables
-# fun
-display_banner
+
 # load all enabled modules
 load_modules
+
+# fun
+display_banner
+
+# info and log stuff
+puts '[+] Dvash is running . . .'.green
+if @log then write_log('INFO,Dvash Started Successfully') end
+
 # start up all the loaded modules
 @module_threads.each { |thr| thr.join }
-if @log then write_log('INFO,Dvash Started Successfully') end
