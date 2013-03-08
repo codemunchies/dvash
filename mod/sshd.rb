@@ -2,7 +2,7 @@
 ###############################################################################
 #
 #  Dvash Defense - SSHd Module
-#  version 0.01a
+#  version 1.0
 #
 #  Written By: Ari Mizrahi
 #

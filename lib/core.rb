@@ -2,7 +2,7 @@
 ###############################################################################
 #
 #  Core Libraries
-#  version 0.01a
+#  version 1.1
 #
 #  Written By: Ari Mizrahi
 #
