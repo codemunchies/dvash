@@ -1,7 +1,7 @@
 0.2 Dvash - upcoming
 ====================
-[-] add command-line options to enable/disable logging/debugging
-[-] add capability to log blacklisted addresses
+[+] add command-line options to enable/disable logging/debugging
+[+] added capability to log blacklisted addresses
 [-] add capability to whitelist addresses
 
 

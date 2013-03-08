@@ -31,3 +31,5 @@ How to run Dvash
 
 There is a Gemfile, use bundler in the root path of dvash to install the required gems `bundle install`
 Then run the main dvash.rb file to start it up `ruby dvash.rb`
+
+Optionally `ruby dvash.rb --help` has more information

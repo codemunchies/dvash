@@ -2,7 +2,7 @@
 ###############################################################################
 #
 #  Dvash Defense
-#  version 0.1
+#  version 0.1.2
 #
 #  Written By: Ari Mizrahi
 #
@@ -17,6 +17,7 @@
 
 require 'socket'
 require 'ipaddr'
+require 'optparse'
 require 'parseconfig'
 require './lib/core.rb'
 require './lib/sanity.rb'
@@ -24,7 +25,7 @@ require './lib/log.rb'
 require './lib/colorize.rb'
 require './lib/banner.rb'
 
-# set run levels
+# set default run levels
 @debug = false
 @log = false
 @ipv4tables = false
@@ -32,6 +33,26 @@ require './lib/banner.rb'
 
 # bucket for module threads
 @module_threads = []
+# bucket for command-line arguments
+options = {}
+
+# accept command-line arguments
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{__FILE__} [options]"
+
+  opts.on('-h', '--help', 'over 9000!') do |h|
+  	puts opts
+  	Process.exit
+  end
+
+  opts.on('-d', '--debug', 'enable debug') do |d|
+  	@debug = true    
+  end
+  
+  opts.on('-l', '--log', 'enable logging') do |l|
+  	@log = true
+  end
+end.parse!
 
 # load conf file
 load_conf
