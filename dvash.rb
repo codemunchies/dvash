@@ -23,7 +23,7 @@ require './lib/colorize.rb'
 require './lib/banner.rb'
 
 # set run levels
-@debug = true
+@debug = false
 @log = false
 @ipv4tables = false
 @ipv6tables = false
