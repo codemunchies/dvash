@@ -40,7 +40,7 @@ prepare_iptables
 prepare_ip6tables
 # fun
 display_banner
-# load all configured modules
+# load all enabled modules
 load_modules
 # start up all the loaded modules
 @module_threads.each { |thr| thr.join }

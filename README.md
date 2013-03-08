@@ -29,8 +29,5 @@ How to run Dvash
 
 *NOTE: Make sure all files in lib/ and mod/ have the executable bit on*
 
-There is an included Gemfile, use bundler in the root path of dvash to install the required gems
-`bundle install`
-
-Then run the main dvash.rb file to start it up
-`ruby dvash.rb`
+There is a Gemfile, use bundler in the root path of dvash to install the required gems `bundle install`
+Then run the main dvash.rb file to start it up `ruby dvash.rb`
