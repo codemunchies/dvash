@@ -19,6 +19,8 @@ require 'socket'
 require 'ipaddr'
 require 'parseconfig'
 require './lib/core.rb'
+require './lib/sanity.rb'
+require './lib/log.rb'
 require './lib/colorize.rb'
 require './lib/banner.rb'
 
