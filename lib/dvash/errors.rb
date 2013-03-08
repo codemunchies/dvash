@@ -1,4 +1,4 @@
-class Dvash
+module Dvash
   
   # The base class for Dvash error classes.
   class Error < StandardError; end

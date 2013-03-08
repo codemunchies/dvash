@@ -1,6 +1,6 @@
 require 'dvash/multi_io'
 
-class Dvash
+module Dvash
   
   # Methods for dealing with loggin within Dvash.
   module Logging
@@ -29,12 +29,15 @@ class Dvash
       @logger ||= Logger.new(log_output)
     end
     
-    attr_reader :logging
+    # @return [true, false] Is logging enabled?
+    def logging?
+      @logging_enabled
+    end
     
     # @param [true, false, nil] value The truthy or falsey value to enable or diable logging.
     # @return [true, false] Is logging enabled?
-    def logging=(value)
-      @logging = !!value # "Bang-bang" or "not-not" turns any object into a boolean.
+    def logging_enabled=(value)
+      @logging_enabled = !!value # "Bang-bang" or "not-not" turns any object into a boolean.
     end
     
     attr_reader :log_colors

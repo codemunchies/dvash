@@ -1,16 +1,3 @@
-require 'socket'
-require 'ipaddr'
-
-require './lib/core.rb'
-require './lib/sanity.rb'
-require './lib/log.rb'
-require './lib/colorize.rb'
-require './lib/banner.rb'
-
-require 'system/os'
-
-
-
 require 'dvash/application'
 
 # Dvash Defense
@@ -26,7 +13,27 @@ require 'dvash/application'
 module Dvash
   
   # Start a new application with logging to a terminal and a file.
-  def self.start(log_path='/var/log/dvash.log')
+  def self.start(options={})
+    raise TypeError, '`options` must be a Hash or respond to :to_hash or :to_h' unless options.is_a?(Hash) || options.respond_to?(:to_hash) || options.respond_to?(:to_h)
+    options = options.to_hash rescue options.to_h unless options.is_a?(Hash)
+    
+    options = {
+      config_path: '/etc/dvash.conf',
+      log_path: '/var/log/dvash.log',
+    }.merge(options)
+    
+    options[:config_path] = Pathname.new( options[:config_path] )
+    
+    application = Application.new( options[:config_path] )
+    
+    unless options[:log_path].nil?
+      options[:log_path] = Pathname.new( options[:log_path] ).expand_path
+      options[:log_path].dirname.mkpath # Recursively create the parent directories of the log_path, if they don't already exist
+      application.log_output.targets << options[:log_path].open('a')
+    end
+    
+    application.start
+  end
   
 end
 
@@ -94,16 +101,7 @@ end
 
 def load_modules
 	# loop through Modules group and find enabled Modules
-	@cfgfile['modules'].each do |key, value|
-		if value == "true" then
-			# load the required module from lib
-			require "./mod/#{key}.rb"
-			# push the module into the thread bucket
-			@module_threads << Thread.new { send("start_#{key}") }
-			if @debug then puts "DEBUG: loaded #{key} module into thread bucket" end
-			if @log then write_log("INFO,successfully loaded #{key} module") end
-		end
-	end
+
 end
 
 def validate_ip(address)
