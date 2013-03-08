@@ -1,17 +1,17 @@
 #!/usr/bin/env ruby
 ###############################################################################
 #
-#  Dvash Defense - SSHd Module
+#  Dvash Defense - Telnet Module
 #  version 0.01a
 #
 #  Written By: Ari Mizrahi
 #
-#  Module to simulate sshd server
+#  Module to simulate telnet server
 #
 ###############################################################################
 
-def start_sshd()
-	server = TCPServer.new(22)
+def start_telnetd()
+	server = TCPServer.new(21)
 	loop do
 	    Thread.fork(server.accept) do |client| 
 	        # send the client junk data
