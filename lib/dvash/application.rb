@@ -10,6 +10,7 @@ module Dvash
 			@honey_threads = Array.new
 			@paths = paths
 
+			load_conf
 			validate_os
 		end
 
@@ -19,7 +20,6 @@ module Dvash
 				exit
 			end
 
-			load_conf
 			load_honeyport
 			@honey_threads.each { |thr| thr.join }
 		end

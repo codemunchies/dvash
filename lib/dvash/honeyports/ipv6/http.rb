@@ -18,7 +18,9 @@ module Dvash
 			    Thread.fork(server.accept) do |client| 
 			        # send the client junk data
 			        client.puts(random_data)
-			        @@os.block_ip(client_ip(client))
+			        if valid_ip?(client_ip(client)) then 
+			        	@@os.block_ip(client_ip(client))
+			        end
 			        client.close
 			    end
 			end

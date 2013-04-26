@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ari Mizrahi"]
-  s.date = "2013-04-01"
+  s.date = "2013-04-26"
   s.description = "Part honeypot, part defense system.  Opens up ports and simulates services in order to look like an attractive target.  Hosts that try to connect to the fake services are considered attackers and blocked from all access."
   s.email = "codemunchies@gmail.com"
   s.executables = ["dvash"]
-  s.files = ["lib/dvash/honeyports/ipv4/http.rb", "lib/dvash/honeyports/ipv6/http.rb", "lib/dvash/os/linux.rb", "lib/dvash/os/mac.rb", "lib/dvash/os/windows.rb", "lib/dvash/application.rb", "lib/dvash/validation.rb", "lib/dvash.rb", "dvash.gemspec", "Gemfile"]
+  s.files = ["etc/dvash-baseline.conf", "lib/dvash/honeyports/ipv4/http.rb", "lib/dvash/honeyports/ipv6/http.rb", "lib/dvash/os/linux.rb", "lib/dvash/os/mac.rb", "lib/dvash/os/windows.rb", "lib/dvash/application.rb", "lib/dvash/validation.rb", "lib/dvash.rb", "dvash.gemspec", "Gemfile"]
   s.homepage = "http://github.com/codemunchies/dvash"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
