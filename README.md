@@ -27,9 +27,11 @@ Dvash is designed to be modular so adding a new service to simulate is an easy p
 How to run Dvash
 ----------------
 
-*NOTE: Make sure all files in lib/ and mod/ have the executable bit on*
+To install: `gem install dvash`
 
-There is a Gemfile, use bundler in the root path of dvash to install the required gems `bundle install`
-Then run the main dvash.rb file to start it up `ruby dvash.rb`
+To run: `sudo dvash --help`
 
-Optionally `ruby dvash.rb --help` has more information
+$ dvash --help
+Usage: dvash.rb [options]
+        --config-file [PATH]         Set path to config file
+        --log-file [PATH]            Set path to log file
