@@ -30,8 +30,3 @@ How to run Dvash
 To install: `gem install dvash`
 
 To run: `sudo dvash --help`
-
-$ dvash --help
-Usage: dvash.rb [options]
-        --config-file [PATH]         Set path to config file
-        --log-file [PATH]            Set path to log file
