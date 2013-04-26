@@ -32,11 +32,11 @@ module Dvash
 		def block_ip(address)
 
 			if IPAddr.new("#{address}").ipv4? then
-				system("#{@@cfgfile['iptables']['ipv4']} -I DVASH -s #{badip} -j DROP")
+				system("#{@@cfgfile['iptables']['ipv4']} -I DVASH -s #{address} -j DROP")
 			end
 
 			if IPAddr.new("#{address}").ipv6? then
-				system("#{@@cfgfile['iptables']['ipv6']} -I DVASH -s #{badip} -j DROP")
+				system("#{@@cfgfile['iptables']['ipv6']} -I DVASH -s #{address} -j DROP")
 			end
 		end
 
