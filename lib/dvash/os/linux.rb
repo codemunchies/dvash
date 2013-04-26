@@ -1,6 +1,6 @@
 module Dvash
 
-	class Linux
+	class Linux < Validation
 
 		def initialize
 			unless File.exist?(@@cfgfile['iptables']['ipv4'])
@@ -11,9 +11,9 @@ module Dvash
 			# do not create if it has already been created
 			unless `"#{@@cfgfile['iptables']['ipv4']}" -L INPUT`.include?('DVASH')
 				# create a new chain
-				system("#{@cfgfile['iptables']['ipv4']} -N DVASH")
+				system("#{@@cfgfile['iptables']['ipv4']} -N DVASH")
 				# flush the new chain
-				system("#{@cfgfile['iptables']['ipv4']} -F DVASH")
+				system("#{@@cfgfile['iptables']['ipv4']} -F DVASH")
 				# associate new chain to INPUT chain
 				system("#{@cfgfile['iptables']['ipv4']} -I INPUT -j DVASH")
 			end
@@ -21,22 +21,22 @@ module Dvash
 			# do not create if it has already been created
 			unless `"#{@@cfgfile['iptables']['ipv6']}" -L INPUT`.include?('DVASH')
 				# create a new chain
-				system("#{@cfgfile['iptables']['ipv6']} -N DVASH")
+				system("#{@@cfgfile['iptables']['ipv6']} -N DVASH")
 				# flush the new chain
-				system("#{@cfgfile['iptables']['ipv6']} -F DVASH")
+				system("#{@@cfgfile['iptables']['ipv6']} -F DVASH")
 				# associate new chain to INPUT chain
-				system("#{@cfgfile['iptables']['ipv6']} -I INPUT -j DVASH")
+				system("#{@@cfgfile['iptables']['ipv6']} -I INPUT -j DVASH")
 			end
 		end
 
 		def block_ip(address)
 
 			if IPAddr.new("#{address}").ipv4? then
-				system("#{@cfgfile['iptables']['ipv4']} -I DVASH -s #{badip} -j DROP")
+				system("#{@@cfgfile['iptables']['ipv4']} -I DVASH -s #{badip} -j DROP")
 			end
 
 			if IPAddr.new("#{address}").ipv6? then
-				system("#{@cfgfile['iptables']['ipv6']} -I DVASH -s #{badip} -j DROP")
+				system("#{@@cfgfile['iptables']['ipv6']} -I DVASH -s #{badip} -j DROP")
 			end
 		end
 
