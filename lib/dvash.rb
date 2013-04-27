@@ -2,6 +2,7 @@ require 'dvash/application'
 
 require 'optparse'
 
+#
 # Dvash Defense
 # 
 # Written By: Ari Mizrahi
@@ -12,37 +13,51 @@ require 'optparse'
 # 
 # Heavily inspired by The Artillery Project by Dave Kennedy (ReL1K) with a
 # passion for ruby and a thirst for knowledge.
+#
 
 module Dvash
   
-  # Start a new Dvash instance
   def self.start(paths={})
 
-    # Set default options
+    #
+    # Set default path to config and log files
+    # TODO: These settings assume Linux default paths, should determine the operating system then configure accordingly
+    #
     paths[:config_path] = '/etc/dvash.conf'
     paths[:log_path] = '/var/log/dvash.conf'
     
-    # Command-line interface
+    #
+    # A command-line interface using OptionParser
+    #
     OptionParser.new do |opts|
       opts.banner = "Usage: #{__FILE__} [options]"
 
+      #
+      # Option to set an alternate configuration file
+      #
       opts.on("--config-file [PATH]", "Set path to config file") do |arg|
         paths[:config_path] = arg
       end
 
+      #
+      # Option to set an alternate log file destination and filename
+      #
       opts.on("--log-file [PATH]", "Set path to log file") do |arg|
         paths[:log_path] = arg
       end
     end.parse!
 
+    #
     # Create and start an Application instance
-    #begin
+    #
+    begin
       application = Dvash::Application.new(paths)
       application.start
-    #rescue
-    #  puts "couldn't start application" # replace me
-    #  exit
-    #end
+    rescue
+      # TODO: Use 'logger' gem to output debug information
+      puts "couldn't start application"
+      exit
+    end
 
 
   end
