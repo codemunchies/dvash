@@ -30,17 +30,36 @@ module Dvash
 		# @@os is used as a class variable to call its methods from within a Honeyport
 		#
 		def validate_os
+			#
+			# Store rubygems platform data
+			#
 			system = RUBY_PLATFORM
+			#
+			# Use regular expressions to determine operating system
+			#
 			case system
+			# WINDOWS
 			when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+				#
+				# Create Dvash Windows object for use within 'honeyports' modules
+				#
 				require 'dvash/os/windows'
 	      @@os = Dvash::Windows.new
+	    # MAC OS X
 			when /darwin|mac os/
+				#
+				# Create Dvash Mac OS X object for use within 'honeyports' modules
+				#
 				require 'dvash/os/mac'
 	      @@os = Dvash::Mac.new
+	    # LINUX
 			when /linux/
+				#
+				# Create Dvash Linux object for use within 'honeyports' modules
+				#
 				require 'dvash/os/linux'
 	      @@os = Dvash::Linux.new
+	    # BSD
 			when /solaris|bsd/
 				# TODO: BSD support
 				exit
@@ -77,7 +96,13 @@ module Dvash
 					#
 					# Load methods for all 'honeyports' set to 'true'
 					#
-					require "dvash/honeyports/#{ipver}/#{proto}"
+					begin
+						require "dvash/honeyports/#{ipver}/#{proto}"
+					rescue
+						# TODO: Use 'logger' gem to output debug information
+						puts "couldn't load dvash/honeyports/#{ipver}/#{proto}"
+						exit
+					end
 					#
 					# Push the loaded 'honeyport' into a thread
 					#
