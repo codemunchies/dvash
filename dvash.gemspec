@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "dvash"
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ari Mizrahi"]
-  s.date = "2013-04-26"
+  s.date = "2013-04-27"
   s.description = "Part honeypot, part defense system.  Opens up ports and simulates services in order to look like an attractive target.  Hosts that try to connect to the fake services are considered attackers and blocked from all access."
   s.email = "codemunchies@gmail.com"
   s.executables = ["dvash"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/codemunchies/dvash"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
-  s.summary = "Very alpha honeypot defense system"
+  s.summary = "Honeypot defense system"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
