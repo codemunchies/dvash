@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dvash (0.0.4)
+    dvash (0.0.5)
       bundler (~> 1.3)
       parseconfig (~> 1.0)
 

@@ -30,15 +30,14 @@ module Dvash
     # A command-line interface using OptionParser
     #
     OptionParser.new do |opts|
-      opts.banner = "Usage: #{__FILE__} [options]"
-
+      opts.banner = "Dvash 0.0.5 ( http://www.github.com/codemunchies/dvash )\n"
+      opts.banner += "Usage: dvash [options]"
       #
       # Option to set an alternate configuration file
       #
       opts.on("--config-file [PATH]", "Set path to config file") do |arg|
         paths[:config_path] = arg
       end
-
       #
       # Option to set an alternate log file destination and filename
       #
