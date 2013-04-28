@@ -33,5 +33,3 @@ How to get Dvash
 To install: `gem install dvash`
 
 To run: `sudo dvash --help`
-
-Configuration file: Copy the base configuration file from this github repository in etc/dvash-baseline.conf and set values.
