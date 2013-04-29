@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "dvash"
-  s.version = "0.0.6"
+  s.version = "0.0.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ari Mizrahi"]
-  s.date = "2013-04-28"
+  s.date = "2013-04-29"
   s.description = "Part honeypot, part defense system.  Opens up ports and simulates services in order to look like an attractive target.  Hosts that try to connect to the fake services are considered attackers and blocked from all access."
   s.email = "codemunchies@gmail.com"
   s.executables = ["dvash"]
