@@ -28,7 +28,7 @@ module Dvash
 				#
 				# Associate the DVASH chain to INPUT chain
 				#
-				system("#{@cfgfile['iptables']['ipv4']} -I INPUT -j DVASH")
+				system("#{@@cfgfile['iptables']['ipv4']} -I INPUT -j DVASH")
 			end
 
 			#
