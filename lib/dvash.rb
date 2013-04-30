@@ -30,7 +30,7 @@ module Dvash
     # A command-line interface using OptionParser
     #
     OptionParser.new do |opts|
-      opts.banner = "Dvash 0.0.7 ( http://www.github.com/codemunchies/dvash )\n"
+      opts.banner = "Dvash 0.0.8 ( http://www.github.com/codemunchies/dvash )\n"
       opts.banner += "Usage: dvash [options]"
       #
       # Option to set an alternate configuration file
