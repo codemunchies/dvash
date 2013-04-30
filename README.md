@@ -18,7 +18,7 @@ Dvash is a defensive honeypot, each service that is emulated is called a honeypo
 >1. When a honeyport thread starts it sits and listens for a connection.
 >2. The thread forks the process when a client connects and accepts the connection.
 >3. The forked process then sends the client connection junk data.
->4. The peer address is validated since anything in a payload can be manipulated.
+>4. The peer address is validated since anything in a packet can be manipulated.
 >5. A valid IPv4 or IPv6 address is then blocked.
  * Linux - blocked using IPTables/IP6Tables.
  * Mac OS X - blocked using ipfw.
