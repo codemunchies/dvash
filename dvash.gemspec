@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = "Part honeypot, part defense system.  Opens up ports and simulates services in order to look like an attractive target.  Hosts that try to connect to the fake services are considered attackers and blocked from all access."
   s.email = "codemunchies@gmail.com"
   s.executables = ["dvash"]
-  s.files = ["etc/dvash-baseline.conf", "lib/dvash/honeyports/ipv4/http.rb", "lib/dvash/honeyports/ipv4/rdp.rb", "lib/dvash/honeyports/ipv4/ssh.rb", "lib/dvash/honeyports/ipv4/telnet.rb", "lib/dvash/honeyports/ipv6/http.rb", "lib/dvash/honeyports/ipv6/rdp.rb", "lib/dvash/honeyports/ipv6/ssh.rb", "lib/dvash/os/linux.rb", "lib/dvash/os/mac.rb", "lib/dvash/os/windows.rb", "lib/dvash/application.rb", "lib/dvash/core.rb", "lib/dvash.rb", "dvash.gemspec", "Gemfile"]
+  s.files = ["etc/dvash-baseline.conf", "lib/dvash/honeyports/ipv4/http.rb", "lib/dvash/honeyports/ipv4/rdp.rb", "lib/dvash/honeyports/ipv4/ssh.rb", "lib/dvash/honeyports/ipv4/telnet.rb", "lib/dvash/honeyports/ipv6/http.rb", "lib/dvash/honeyports/ipv6/rdp.rb", "lib/dvash/honeyports/ipv6/ssh.rb", "lib/dvash/os/linux.rb", "lib/dvash/os/mac.rb", "lib/dvash/os/windows.rb", "lib/dvash/application.rb", "lib/dvash/core.rb", "lib/dvash.rb", "dvash.gemspec", "Gemfile", "README.md"]
   s.homepage = "http://github.com/codemunchies/dvash"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
