@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
   s.summary = "Honeypot defense system"
+  s.license = "GNU"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
