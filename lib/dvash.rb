@@ -14,6 +14,10 @@ require 'optparse'
 # Heavily inspired by The Artillery Project by Dave Kennedy (ReL1K) with a
 # passion for ruby and a thirst for knowledge.
 #
+# Many thanks to Ryan Scott Lewis (https://github.com/RyanScottLewis) for 
+# his contribution to this project and showing me the true Ruby way.  I still
+# have ways to go.
+#
 
 module Dvash
   
