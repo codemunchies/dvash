@@ -18,7 +18,16 @@ module Dvash
 			#
 			# Block the client IP address using ipfw binaries set in the configuration file
 			#
-			system("#{@@cfgfile['ipfw']['ipfw']} -q add deny src-ip #{address}")
+			if IPAddr.new("#{address}").ipv4? then
+				system("#{@@cfgfile['ipfw']['ipfw']} -q add deny all from #{address} to any")
+			end
+
+			#
+			# Block the client IP address using ip6fw binaries set in the configuration file
+			#
+			if IPAddr.new("#{address}").ipv6? then
+				system("#{@@cfgfile['ipfw']['ip6fw']} -q add deny all from #{address} to any")
+			end
 		end
 
 	end
