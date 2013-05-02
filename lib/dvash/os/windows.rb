@@ -23,6 +23,7 @@ module Dvash
 			#
 			if IPAddr.new("#{address}").ipv6? then
 				system("netsh interface ipv6 add route #{address} \"Local Area Connection\" ::1")
+			end
 		end
 
 	end
