@@ -1,5 +1,4 @@
 require 'dvash/application'
-
 require 'optparse'
 
 #
@@ -20,48 +19,40 @@ require 'optparse'
 #
 
 module Dvash
-  
+  # Start the CLI and instantiate [Dvash]
+  # @params [Hash] instantiate paths to set default config values
   def self.start(paths={})
 
-    #
     # Set default path to config and log files
-    # TODO: These settings assume Linux default paths, should determine the operating system then configure accordingly
-    #
+    # TODO: These settings assume Linux default paths, it should determine the 
+    # operating system then configure accordingly
     paths[:config_path] = '/etc/dvash.conf'
     paths[:log_path] = '/var/log/dvash.conf'
     
-    #
-    # A command-line interface using OptionParser
-    #
+    # Command-line interface
     OptionParser.new do |opts|
+      # Banner information
       opts.banner = "Dvash 0.1.0 ( http://www.github.com/codemunchies/dvash )\n"
       opts.banner += "Usage: dvash [options]"
-      #
-      # Option to set an alternate configuration file
-      #
+      # Set an alternate configuration file
       opts.on("--config-file [PATH]", "Set path to config file") do |arg|
         paths[:config_path] = arg
       end
-      #
-      # Option to set an alternate log file destination and filename
-      #
+      # Set an alternate log file destination and filename
       opts.on("--log-file [PATH]", "Set path to log file") do |arg|
         paths[:log_path] = arg
       end
     end.parse!
 
-    #
-    # Create and start an Application instance
-    #
+    # Create and start an application instance on Dvash
+    # @return [Dvash] application instance
     begin
       application = Dvash::Application.new(paths)
       application.start
     rescue
-      # TODO: Use 'logger' gem to output debug information
+      # TODO: Use [logger] gem to output debug information
       puts "couldn't start application"
       exit
     end
-
-
   end
 end

@@ -1,34 +1,23 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
+  # Variables:
   s.name = "dvash"
   s.version = "0.1.0"
-
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Ari Mizrahi"]
-  s.date = "2013-05-02"
+  s.authors = "Ari Mizrahi"
+  s.date = "2013-07-21"
   s.description = "Part honeypot, part defense system.  Opens up ports and simulates services in order to look like an attractive target.  Hosts that try to connect to the fake services are considered attackers and blocked from all access."
-  s.email = "codemunchies@gmail.com"
-  s.executables = ["dvash"]
-  s.files = ["etc/dvash-baseline.conf", "lib/dvash/honeyports/ipv4/http.rb", "lib/dvash/honeyports/ipv4/rdp.rb", "lib/dvash/honeyports/ipv4/ssh.rb", "lib/dvash/honeyports/ipv4/telnet.rb", "lib/dvash/honeyports/ipv6/http.rb", "lib/dvash/honeyports/ipv6/rdp.rb", "lib/dvash/honeyports/ipv6/ssh.rb", "lib/dvash/os/linux.rb", "lib/dvash/os/mac.rb", "lib/dvash/os/windows.rb", "lib/dvash/application.rb", "lib/dvash/core.rb", "lib/dvash.rb", "dvash.gemspec", "Gemfile", "README.md"]
-  s.homepage = "http://github.com/codemunchies/dvash"
-  s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.25"
   s.summary = "Honeypot defense system"
+  s.email = "codemunchies@gmail.com"
+  s.homepage = "http://github.com/codemunchies/dvash"
   s.license = "GPL-3"
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
+  # Pragmatically Gathered
+  s.executables = "dvash"
+  s.files = Dir["{lib,bin}/**/*"]
+  s.files += [File.basename(__FILE__), "Gemfile", "README.md", "LICENSE"]
+  s.require_paths = ["lib"]
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<parseconfig>, ["~> 1.0"])
-      s.add_runtime_dependency(%q<bundler>, ["~> 1.3"])
-    else
-      s.add_dependency(%q<parseconfig>, ["~> 1.0"])
-      s.add_dependency(%q<bundler>, ["~> 1.3"])
-    end
-  else
-    s.add_dependency(%q<parseconfig>, ["~> 1.0"])
-    s.add_dependency(%q<bundler>, ["~> 1.3"])
-  end
+  # Dependencies
+  s.add_dependency("parseconfig", "~> 1.0")
 end
