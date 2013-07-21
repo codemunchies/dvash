@@ -1,4 +1,4 @@
-dvash [![Gem Version](https://badge.fury.io/rb/dvash.png)](http://badge.fury.io/rb/dvash)
+[![Gem Version](https://badge.fury.io/rb/dvash.png)](http://badge.fury.io/rb/dvash)
 
 Dvash Defense
 =============
