@@ -32,7 +32,7 @@ module Dvash
     # Command-line interface
     OptionParser.new do |opts|
       # Banner information
-      opts.banner = "Dvash 0.1.0 ( http://www.github.com/codemunchies/dvash )\n"
+      opts.banner = "Dvash 0.1.1 ( http://www.github.com/codemunchies/dvash )\n"
       opts.banner += "Usage: dvash [options]"
       # Set an alternate configuration file
       opts.on("--config-file [PATH]", "Set path to config file") do |arg|
