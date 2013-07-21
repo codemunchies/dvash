@@ -19,11 +19,11 @@ What are Honeyports?
 Dvash is a defensive honeypot, each service that is emulated is called a honeyport as each can be designed to have it's own behaviors.  Dvash is designed to be modular so adding a new honeyport service to emulate is a templated code base.  Each built-in honeyport follows a few steps:
 >1. When a honeyport thread starts it sits and listens for a connection.
 >2. The thread forks the process when a client connects and accepts the connection.
->3. The forked process then sends the client connection junk data.
->4. The peer address is validated since anything in a packet can be manipulated.
->5. A valid IPv4 or IPv6 address is then blocked.
+>3. The peer address is then validate.
+>4. A valid peer address will get 64 bytes of junk data.
+>5. The IPv4 or IPv6 address is then blocked.
  * Linux - blocked using IPTables/IP6Tables.
- * Mac OS X - blocked using ipfw.
+ * Mac OS X - blocked using ipfw/ip6fw.
  * Windows - blocked by blackhole routing.
 >6. Finally, the connection is closed and the forked process killed.
 
