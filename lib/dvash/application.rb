@@ -30,10 +30,10 @@ module Dvash
       end
       # Load all honeyports set true in the configuration file
       load_honeyport
-      # Start all loaded threads
-      @honey_threads.each { |thr| thr.join }
       # Let the user know we're running
       puts "Dvash is running..."
+      # Start all loaded threads
+      @honey_threads.each { |thr| thr.join }
     end
 
   end
