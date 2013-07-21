@@ -21,14 +21,12 @@ module Dvash
 			# Infinite listening loop
 			loop do
 				# Fork a new instance of [TCPServer] when a client connects
-				# TODO: Maybe we should not send junk data until after the client IP 
-				# has been validated	
 			    Thread.fork(server.accept) do |client| 
-			        # Send the connected client junk data
-			        client.puts(random_data)
 			        # Make sure the client has a valid IP address
 			        # @return [Boolean] true|false
 			        if valid_ip?(client_ip(client)) then 
+			        	# Send the connected client junk data
+			        	client.puts(random_data)
 			        	# Block the IP address
 			        	@@os.block_ip(client_ip(client))
 			        end
